@@ -19,6 +19,7 @@ jobs:
       - name: Set up /etc/iiab/local_vars.yml
         run: |
           sudo mkdir /etc/iiab
+          sudo touch /etc/iiab/local_vars.yml
           sudo curl https://raw.githubusercontent.com/iiab/calibre-web/master/scripts/omg.yml > /etc/iiab/local_vars.yml
       - run: sudo /opt/iiab/iiab/scripts/ansible    # Install Ansible
       - run: sudo ./iiab-install                    # Install IIAB!
