@@ -6,14 +6,10 @@ jobs:
   test-install:
     runs-on: ubuntu-24.04
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0    # Default is 1, but iiab-summary (below) needs git tag history.
       - name: Set up /opt/iiab/iiab
         run: |
           mkdir /opt/iiab
-          mv $GITHUB_WORKSPACE /opt/iiab
+          sudo git clone https://github.com/iiab/iiab /opt/iiab
           # Github Actions is weird, do not delete the line below. Yes, it will cause everything to break. Really.
           mkdir $GITHUB_WORKSPACE
       - name: Set up /etc/iiab/local_vars.yml
