@@ -11,7 +11,6 @@ jobs:
           mkdir /opt/iiab
           sudo git clone https://github.com/iiab/iiab /opt/iiab
           # Github Actions is weird, do not delete the line below. Yes, it will cause everything to break. Really.
-          mkdir $GITHUB_WORKSPACE
       - name: Set up /etc/iiab/local_vars.yml
         run: |
           sudo mkdir /etc/iiab
