@@ -8,14 +8,14 @@ jobs:
     steps:
       - name: Set up /opt/iiab/iiab
         run: |
-          mkdir /opt/iiab
-          sudo git clone https://github.com/iiab/iiab /opt/iiab
+          mkdir -p /opt/iiab/iiab/
+          sudo git clone https://github.com/iiab/iiab /opt/iiab/iiab/
           # Github Actions is weird, do not delete the line below. Yes, it will cause everything to break. Really.
       - name: Set up /etc/iiab/local_vars.yml
         run: |
           sudo mkdir /etc/iiab
           sudo curl https://raw.githubusercontent.com/iiab/calibre-web/master/scripts/omg.yml > $GITHUB_WORKSPACE/local_vars.yml
           sudo cp $GITHUB_WORKSPACE/local_vars.yml /etc/iiab/local_vars.yml
-      - run: sudo /opt/iiab/scripts/ansible    # Install Ansible
+      - run: sudo /opt/iiab/iiab/scripts/ansible    # Install Ansible
       - run: sudo ./iiab-install                    # Install IIAB!
-        working-directory: /opt/iiab/
+        working-directory: /opt/iiab/iiab/
