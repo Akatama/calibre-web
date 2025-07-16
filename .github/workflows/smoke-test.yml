@@ -19,7 +19,7 @@ jobs:
       - name: Clone IIAB
         run: sudo git clone https://github.com/iiab/iiab
         working-directory: /opt/iiab/
-      - run: ls /op/iiab/
+      - run: ls /opt/iiab/
       - run: ls /opt/iiab/iiab/
       - run: sudo /opt/iiab/iiab/scripts/ansible    # Install Ansible
       - run: sudo ./iiab-install                    # Install IIAB!
