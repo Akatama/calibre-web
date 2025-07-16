@@ -16,8 +16,6 @@ jobs:
           sudo mkdir /etc/iiab
           sudo curl https://raw.githubusercontent.com/iiab/calibre-web/master/scripts/omg.yml > $GITHUB_WORKSPACE/local_vars.yml
           sudo cp $GITHUB_WORKSPACE/local_vars.yml /etc/iiab/local_vars.yml
-      - run: ls /opt/iiab/
-      - run: ls /opt/iiab/iiab/
       - run: sudo /opt/iiab/iiab/scripts/ansible    # Install Ansible
       - run: sudo ./iiab-install                    # Install IIAB!
         working-directory: /opt/iiab/iiab
