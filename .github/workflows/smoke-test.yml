@@ -8,8 +8,10 @@ jobs:
     steps:
       - name: Set up /opt/iiab/iiab
         run: |
-          sudo mkdir -p /opt/iiab/iiab/
-          sudo git clone https://github.com/iiab/iiab /opt/iiab/iiab/
+          sudo mkdir -p /opt/iiab/
+      - name: Clone repo
+        run: sudo git clone https://github.com/iiab/iiab
+        working-directory: /opt/iiab/
       - name: Set up /etc/iiab/local_vars.yml
         run: |
           sudo mkdir /etc/iiab
