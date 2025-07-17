@@ -12,6 +12,8 @@ jobs:
       - name: Clone repo
         run: sudo git clone https://github.com/iiab/iiab
         working-directory: /opt/iiab/
+      - name: Set proper permissions
+        run: sudo chmod 755 /opt/iiab/iiab
       - name: Set up /etc/iiab/local_vars.yml
         run: |
           sudo mkdir /etc/iiab
