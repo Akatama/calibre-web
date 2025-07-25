@@ -50,9 +50,8 @@ jobs:
       - run: firefox --version
       - name: Create Python environment
         run: |
-          sudo python3 -m venv venv
+          python3 -m venv venv
           source venv/bin/activate
-        working-directory: /usr/local/calibre-web-py3
       - name: Install Python dependencies for testing
         uses: py-actions/py-dependency-install@v4
         with:
