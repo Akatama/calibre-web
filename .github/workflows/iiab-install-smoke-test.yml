@@ -48,8 +48,10 @@ jobs:
       - name: Install Firefox
         uses: browser-actions/setup-firefox@v1
       - run: firefox --version
-      - name: Activate virtual environment
-        run: source bin/activate
+      - name: Create Python environment
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
         working-directory: /usr/local/calibre-web-py3
       - name: Install Python dependencies for testing
         uses: py-actions/py-dependency-install@v4
@@ -59,5 +61,5 @@ jobs:
         # Note that there are issues with creating the cache path for pytest, which results in the below warning.
         # PytestCacheWarning: could not create cache path /usr/local/calibre-web-py3/.pytest_cache/v/cache/nodeids: [Errno 13] Permission denied: '/usr/local/calibre-web-py3/pytest-cache-files-su2iy_u0'
         # The tests pass, and -p no:cacheprovider makes it so the warning is not displayed
-        run: pytest -p no:cacheprovider -s --splinter-webdriver firefox --splinter-headless
+        run: pytest -s --splinter-webdriver firefox --splinter-headless
         working-directory: /usr/local/calibre-web-py3
